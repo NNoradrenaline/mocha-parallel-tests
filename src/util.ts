@@ -1,5 +1,6 @@
 import { existsSync } from 'fs';
 import { join, resolve } from 'path';
+import { inspect } from 'util';
 import Mocha from "mocha";
 
 export interface CLICompilers {
@@ -9,9 +10,9 @@ export interface CLICompilers {
 
 export function setProcessExitListeners() {
   process.on('unhandledRejection', (reason) => {
-    const message = reason && 'stack' in reason
+    const message = reason && typeof reason === 'object' && 'stack' in reason
       ? (reason as Error).stack
-      : 'Unhandled asynchronous exception';
+      : inspect(reason);
 
     // eslint-disable-next-line no-console
     console.error(`Unhandled asynchronous exception: ${message}`);
