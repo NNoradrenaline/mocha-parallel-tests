@@ -82,6 +82,7 @@ test '--retries and --bail should work well together' test/bail-and-retries/inde
 test 'subprocess exits before sending an end message' test/no-subprocess-end/index.js
 test 'unhandled rejections should not force subprocess to exit' test/q-promises/index.js
 test 'uncaught exceptions should not force subprocess to exit' test/uncaught-exception/index.js
+test 'unhandled rejection diagnostics are preserved' test/unhandled-rejection-diagnostics/index.sh
 test 'grep option' test/grep/index.js
 test 'grep option alias support' test/grep/index-alias.js
 test 'grep option - programmatic API support' test/grep/indexProgrammatic.js
